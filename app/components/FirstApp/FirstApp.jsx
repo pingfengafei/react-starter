@@ -1,6 +1,8 @@
 import React from 'react';
 import './FirstApp.less';
 
+import fakeData from '../../data/data.json';
+
 export default class FirstApp extends React.Component {
 
     constructor(props) {
@@ -9,8 +11,24 @@ export default class FirstApp extends React.Component {
         this.refreshKeyword = this.refreshKeyword.bind(this);
     }
 
+    componentDidMount() {
+        $.ajax({
+            type: 'get',
+            url: 'http://10.10.0.55:8080/home/getFinishedSpid',
+            timeout: 20000,
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (e) {
+                console.log(fakeData);
+            }
+        });
+    }
+
     refreshKeyword() {
         this.setState({'keyword': ++this.state.keyword});
+
+
     }
 
     render() {

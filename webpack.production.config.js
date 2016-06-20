@@ -99,7 +99,8 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({minimize: true}),
 
         new HtmlWebpackPlugin({
-            title: 'react starter'
+            title: 'react starter',
+            template: 'index.tpl'
         })
     ]
 };

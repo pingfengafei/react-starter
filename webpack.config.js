@@ -86,7 +86,8 @@ module.exports = {
             jQuery: 'jquery'
         }),
         new HtmlWebpackPlugin({
-            title: 'react starter'
+            title: 'react starter',
+            template: 'index.tpl'
         })
     ],
     resolve: {
