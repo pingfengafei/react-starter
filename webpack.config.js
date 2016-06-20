@@ -58,7 +58,7 @@ module.exports = {
                 loaders: ['json']
             },
             {
-                test: /\.js?$/,
+                test: /\.jsx?$/,
                 loader: 'babel',
                 include: APP_PATH,
                 exclude: [
@@ -86,8 +86,7 @@ module.exports = {
             jQuery: 'jquery'
         }),
         new HtmlWebpackPlugin({
-            title: 'dfp test',
-            template: 'my-index.html'
+            title: 'react starter'
         })
     ],
     resolve: {

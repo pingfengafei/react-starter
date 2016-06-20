@@ -49,7 +49,7 @@ module.exports = {
                 loaders: ['json']
             },
             {
-                test: /\.js?$/,
+                test: /\.jsx?$/,
                 loader: 'babel',
                 include: APP_PATH,
                 exclude: [
@@ -99,8 +99,7 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({minimize: true}),
 
         new HtmlWebpackPlugin({
-            title: 'dfp test',
-            template: 'my-index.html'
+            title: 'react starter'
         })
     ]
 };
