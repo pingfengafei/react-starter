@@ -10,7 +10,7 @@ export default class HelloWorld extends React.Component {
     render() {
         return (
             <div className="HelloWorld">
-                Hello World!
+                Hello World!你好
             </div>
         );
     }

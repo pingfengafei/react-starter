@@ -11,6 +11,14 @@ export default class FirstApp extends React.Component {
         this.refreshKeyword = this.refreshKeyword.bind(this);
     }
 
+    sum(array, len) {
+        if (len == 1) {
+            return array[0];
+        } else {
+            return this.sum(array, len - 1) + array[len - 1];
+        }
+    }
+
     componentDidMount() {
         $.ajax({
             type: 'get',
@@ -23,12 +31,19 @@ export default class FirstApp extends React.Component {
                 console.log(fakeData);
             }
         });
+
+        var testArray = [1, 2, 3];
+        console.log('递归求和:' + this.sum(testArray, testArray.length));
+
+        var sum = _.reduce(testArray, function (x, y) {
+            return x + y;
+        }, 0);
+        console.log('lodash递归求和:' + sum);
+        console.log('lodash自带方法求和:' + _.sum(testArray));
     }
 
     refreshKeyword() {
         this.setState({'keyword': ++this.state.keyword});
-
-
     }
 
     render() {
