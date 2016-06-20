@@ -1,0 +1,22 @@
+{
+  "name": "react-starter",
+  "version": "1.0.0",
+  "description": "to run react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zadzbw/react-starter.git"
+  },
+  "keywords": [
+    "starter"
+  ],
+  "author": "bowen.zhu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zadzbw/react-starter/issues"
+  },
+  "homepage": "https://github.com/zadzbw/react-starter#readme"
+}
