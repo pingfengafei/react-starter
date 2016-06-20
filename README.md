@@ -12,6 +12,7 @@ npm install
 
 ```
 npm start
+之后打开9999端口
 ```
 
 打包：
