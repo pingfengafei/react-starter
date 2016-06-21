@@ -22,7 +22,7 @@ export default class FirstApp extends React.Component {
     componentDidMount() {
         $.ajax({
             type: 'get',
-            url: 'http://10.10.0.55:8080/home/getFinishedSpid',
+            url: 'http://10.10.0.55:8088/home/getFinishedSpid',
             timeout: 20000,
             success: function (data) {
                 console.log(data);
