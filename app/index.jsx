@@ -2,7 +2,7 @@ import './style/style.less';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, hashHistory} from 'react-router';
+import {Router, Route, browserHistory} from 'react-router';
 import MyButtonController from './components/MyButtonController/MyButtonController';
 import App from './components/App/App';
 import Boy from './components/Boy/Boy';
@@ -42,7 +42,7 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
         <Route path="/demo" component={Demo}/>
         <Route path="/" component={App}>
             <Route path="/boys" component={Boys}>
