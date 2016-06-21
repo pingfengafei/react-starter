@@ -1,4 +1,8 @@
-# DFP Test
+# React Starter
+
+## 项目概述
+
+此项目为一个简单的react+flux+es6+react-router的示例demo。
 
 ### 项目启动
 
