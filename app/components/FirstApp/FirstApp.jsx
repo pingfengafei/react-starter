@@ -35,9 +35,7 @@ export default class FirstApp extends React.Component {
         var testArray = [1, 2, 3];
         console.log('递归求和:' + this.sum(testArray, testArray.length));
 
-        var sum = _.reduce(testArray, function (x, y) {
-            return x + y;
-        }, 0);
+        var sum = _.reduce(testArray, ((x, y)=>x + y), 0);
         console.log('lodash递归求和:' + sum);
         console.log('lodash自带方法求和:' + _.sum(testArray));
     }
