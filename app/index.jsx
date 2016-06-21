@@ -2,8 +2,7 @@ import './style/style.less';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FirstApp from './components/FirstApp/FirstApp';
-import HelloWorld from './components/HelloWorld/HelloWorld';
+import MyButtonController from './components/MyButtonController/MyButtonController';
 
 class App extends React.Component {
 
@@ -31,8 +30,7 @@ class App extends React.Component {
         return (
             <div>
                 <div>width:{this.state.w}</div>
-                <FirstApp />
-                <HelloWorld />
+                <MyButtonController/>
             </div>
         );
     }

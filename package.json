@@ -53,6 +53,7 @@
     "bootstrap": "^3.3.6",
     "flux": "^2.1.1",
     "jquery": "^3.0.0",
+    "object-assign": "^4.1.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
