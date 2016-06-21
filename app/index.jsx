@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 import MyButtonController from './components/MyButtonController/MyButtonController';
 import App from './components/App/App';
+import Boy from './components/Boy/Boy';
 import Boys from './components/Boys/Boys';
 import Girls from './components/Girls/Girls';
 
@@ -42,9 +43,11 @@ class Demo extends React.Component {
 
 ReactDOM.render(
     <Router history={hashHistory}>
+        <Route path="/demo" component={Demo}/>
         <Route path="/" component={App}>
-            <Route path="/demo" component={Demo}/>
-            <Route path="/boys" component={Boys}/>
+            <Route path="/boys" component={Boys}>
+                <Route path="/boys/:boyName" component={Boy}/>
+            </Route>
             <Route path="/girls" component={Girls}/>
         </Route>
     </Router>, document.getElementById('example'));

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class Boys extends React.Component {
 
@@ -9,7 +10,12 @@ export default class Boys extends React.Component {
     render() {
         return (
             <div>
-                <h2>大家好，我是{this.props.params.boyName}，我爱你们~~</h2>
+                <h2>我的男神们：</h2>
+                <ul>
+                    <li><Link to="/boys/宋仲基">宋仲基</Link></li>
+                    <li><Link to="/boys/吴亦凡">吴亦凡</Link></li>
+                </ul>
+                {this.props.children}
             </div>
         );
     }
