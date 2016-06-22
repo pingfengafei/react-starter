@@ -3,43 +3,11 @@ import './style/style.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
-import MyButtonController from './components/MyButtonController/MyButtonController';
+import Demo from './components/Demo/Demo';
 import App from './components/App/App';
 import Boy from './components/Boy/Boy';
 import Boys from './components/Boys/Boys';
 import Girls from './components/Girls/Girls';
-
-class Demo extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {w: window.innerWidth};
-        this.handleResize = this.handleResize.bind(this);
-    }
-
-    handleResize() {
-        this.setState({
-            width: window.innerWidth
-        });
-    }
-
-    componentDidMount() {
-        window.addEventListener('resize', _.throttle(this.handleResize, 600, {'trailing': false}));
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', _.throttle(this.handleResize, 600, {'trailing': false}));
-    }
-
-    render() {
-        return (
-            <div>
-                <div>width:{this.state.width}</div>
-                <MyButtonController/>
-            </div>
-        );
-    }
-}
 
 ReactDOM.render(
     <Router history={hashHistory}>
