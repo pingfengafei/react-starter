@@ -19,7 +19,7 @@ class Demo extends React.Component {
 
     handleResize() {
         this.setState({
-            w: window.innerWidth
+            width: window.innerWidth
         });
     }
 
@@ -34,7 +34,7 @@ class Demo extends React.Component {
     render() {
         return (
             <div>
-                <div>width:{this.state.w}</div>
+                <div>width:{this.state.width}</div>
                 <MyButtonController/>
             </div>
         );
