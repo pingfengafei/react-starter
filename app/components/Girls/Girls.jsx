@@ -1,6 +1,11 @@
 import React from 'react';
 
 export default class Girls extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div>
