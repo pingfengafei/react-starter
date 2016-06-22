@@ -8,6 +8,10 @@ export default class Boys extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidMount() {
+        console.log('Boys');
+    }
+
     handleSubmit(event) {
         event.preventDefault();
         const boyName = event.target.elements[0].value;

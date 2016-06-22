@@ -6,6 +6,10 @@ export default class Girls extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        console.log('Girls');
+    }
+    
     render() {
         return (
             <div>
