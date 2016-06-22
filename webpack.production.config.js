@@ -101,7 +101,7 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             title: 'react starter',
-            template: 'index.tpl'
+            template: './templates/index.tpl'
         })
     ]
 };
