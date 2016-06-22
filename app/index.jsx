@@ -43,8 +43,8 @@ class Demo extends React.Component {
 
 ReactDOM.render(
     <Router history={browserHistory}>
-        <Route path="/demo" component={Demo}/>
         <Route path="/" component={App}>
+            <Route path="/demo" component={Demo}/>
             <Route path="/boys" component={Boys}>
                 <Route path="/boys/:boyName" component={Boy}/>
             </Route>
