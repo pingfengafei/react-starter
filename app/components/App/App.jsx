@@ -6,8 +6,24 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
     }
-    
+
     render() {
+
+        let promise = new Promise(function (resolve, reject) {
+            var a = Math.random();
+            if (a > 0.5) {
+                resolve('go');
+            } else {
+                reject('error');
+            }
+        });
+
+        promise.then((value)=> {
+            console.log(value);
+        }, (value)=> {
+            console.log(value);
+        });
+
         return (
             <div>
                 <h1>Ghettohub Issues</h1>
