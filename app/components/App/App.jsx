@@ -20,8 +20,8 @@ export default class App extends React.Component {
 
         promise.then((value)=> {
             console.log(value);
-        }, (value)=> {
-            console.log(value);
+        }, (error)=> {
+            console.log(error);
         });
 
         return (
