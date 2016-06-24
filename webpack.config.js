@@ -14,6 +14,7 @@ module.exports = {
         hot: true,
         inline: true,
         progress: true,
+        colors: true,
         port: 9999
     },
 
@@ -57,6 +58,14 @@ module.exports = {
             {
                 test: /\.json$/,
                 loaders: ['json']
+            },
+            {
+                test: /\.js?$/,
+                loader: 'babel',
+                include: APP_PATH,
+                exclude: [
+                    path.resolve(__dirname, "node_modules")
+                ]
             },
             {
                 test: /\.jsx?$/,

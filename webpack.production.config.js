@@ -50,6 +50,14 @@ module.exports = {
                 loaders: ['json']
             },
             {
+                test: /\.js?$/,
+                loader: 'babel',
+                include: APP_PATH,
+                exclude: [
+                    path.resolve(__dirname, "node_modules")
+                ]
+            },
+            {
                 test: /\.jsx?$/,
                 loader: 'babel',
                 include: APP_PATH,

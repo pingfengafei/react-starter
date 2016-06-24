@@ -26,13 +26,13 @@ export default class App extends React.Component {
 
         var p1 = new Promise(function (resolve) {
             setTimeout(function () {
-                resolve("Hello");
+                resolve('Hello');
             }, 3000);
         });
 
         var p2 = new Promise(function (resolve) {
             setTimeout(function () {
-                resolve("World");
+                resolve('World');
             }, 1000);
         });
 

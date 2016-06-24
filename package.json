@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --inline",
+    "start": "webpack-dev-server --hot --inline --progress --colors --history-api-fallback",
     "build": "NODE_ENV=production webpack --progress --profile --colors --config webpack.production.config.js"
   },
   "repository": {
@@ -50,6 +50,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "alt": "^0.18.4",
     "bootstrap": "^3.3.6",
     "flux": "^2.1.1",
     "jquery": "^3.0.0",
