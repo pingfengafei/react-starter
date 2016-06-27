@@ -19,7 +19,7 @@ module.exports = {
     },
 
     //开发工具,在开发模式下,可以方便调试,生产环境中,应该去掉该选项
-    devtool: 'eval-source-map',
+    devtool: 'cheap-source-map',
 
     //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
     entry: {
