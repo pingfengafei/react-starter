@@ -11,7 +11,7 @@ export default class TodoList extends Component {
                         onClick={() => this.props.onTodoClick(index)}/>
                 )}
             </ul>
-        )
+        );
     }
 }
 

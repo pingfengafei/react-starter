@@ -15,6 +15,7 @@ export default class App extends React.Component {
                 <ul role="nav">
                     <li><Link to="/demo" activeClassName="active123">Demo</Link></li>
                     <li><Link to="/count" activeClassName="active123">count</Link></li>
+                    <li><Link to="/redux" activeClassName="active123">Redux</Link></li>
                 </ul>
                 {this.props.children}
             </div>

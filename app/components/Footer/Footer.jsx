@@ -13,7 +13,7 @@ export default class Footer extends Component {
             }}>
             {name}
             </a>
-        )
+        );
     }
 
     render() {
