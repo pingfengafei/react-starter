@@ -1,5 +1,4 @@
 import React from 'react';
-import './MyButtonController.less';
 import ButtonStore from '../../stores/ButtonStore';
 import ButtonAction from '../../actions/ButtonAction';
 import MyButton from '../MyButton/MyButton';

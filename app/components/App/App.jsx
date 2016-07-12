@@ -14,8 +14,6 @@ export default class App extends React.Component {
                 <h1>Ghettohub Issues</h1>
                 <ul role="nav">
                     <li><Link to="/demo" activeClassName="active123">Demo</Link></li>
-                    <li><Link to="/boys" activeClassName="active123">男神</Link></li>
-                    <li><Link to="/girls" activeClassName="active123">女神</Link></li>
                     <li><Link to="/count" activeClassName="active123">count</Link></li>
                 </ul>
                 {this.props.children}
