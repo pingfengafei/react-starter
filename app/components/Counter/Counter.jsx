@@ -1,6 +1,8 @@
 import React from 'react';
+import {Provider, connect} from 'react-redux';
+import CounterStore, {mapDispatchToProps, mapStateToProps} from '../../stores/CounterStore';
 
-export default class Counter extends React.Component {
+class Counter extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -21,3 +23,18 @@ Counter.propTypes = {
     onIncreaseClick: React.PropTypes.func.isRequired,
     onDecreaseClick: React.PropTypes.func.isRequired
 };
+
+const APP = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Counter);
+
+export default class extends React.Component {
+    render() {
+        return (
+            <Provider store={CounterStore}>
+                <APP />
+            </Provider>
+        );
+    }
+}

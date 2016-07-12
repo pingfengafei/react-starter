@@ -1,7 +1,5 @@
 import {createStore} from 'redux';
 
-const CounterStore = createStore(counter);
-
 function mapStateToProps(state) {
     return {
         value: state.count
@@ -15,6 +13,7 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
+//reducer
 function counter(state = {count: 0}, action) {
     const count = state.count;
     switch (action.type) {
@@ -26,6 +25,8 @@ function counter(state = {count: 0}, action) {
             return state;
     }
 }
+
+const CounterStore = createStore(counter);
 
 export {mapDispatchToProps, mapStateToProps};
 export default CounterStore;
