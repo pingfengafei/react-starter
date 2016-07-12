@@ -1,5 +1,4 @@
 import {createStore} from 'redux';
-import CounterAction from '../actions/CounterAction';
 
 const CounterStore = createStore(counter);
 
@@ -11,7 +10,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        onIncreaseClick: () => dispatch(CounterAction)
+        onIncreaseClick: () => dispatch({type: 'increase'}),
+        onDecreaseClick: () => dispatch({type: 'decrease'})
     };
 }
 
@@ -20,6 +20,8 @@ function counter(state = {count: 0}, action) {
     switch (action.type) {
         case 'increase':
             return {count: count + 1};
+        case 'decrease':
+            return {count: count - 1};
         default:
             return state;
     }
