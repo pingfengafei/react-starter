@@ -14,6 +14,7 @@ var ListStore = assign({}, EventEmitter.prototype, {
 
     doCreate(text) {
         this.items.push(text);
+        this.emitCreateItem();
     },
 
     emitCreateItem() {
@@ -33,7 +34,6 @@ AppDispatcher.register((action)=> {
     switch (action.actionType) {
         case 'ADD_NEW_ITEM':
             ListStore.doCreate(action.text);
-            ListStore.emitCreateItem();
             break;
         default:
         // no op
