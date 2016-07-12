@@ -8,28 +8,28 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 var ListStore = assign({}, EventEmitter.prototype, {
     items: [],
 
-    getAll: function () {
+    getAll() {
         return this.items;
     },
 
-    addNewItemHandler: function (text) {
+    addNewItemHandler(text) {
         this.items.push(text);
     },
 
-    emitChange: function () {
+    emitChange() {
         this.emit('change');
     },
 
-    addChangeListener: function (callback) {
+    addChangeListener(callback) {
         this.on('change', callback);
     },
 
-    removeChangeListener: function (callback) {
+    removeChangeListener(callback) {
         this.removeListener('change', callback);
     }
 });
 
-AppDispatcher.register(function (action) {
+AppDispatcher.register((action)=> {
     switch (action.actionType) {
         case 'ADD_NEW_ITEM':
             ListStore.addNewItemHandler(action.text);

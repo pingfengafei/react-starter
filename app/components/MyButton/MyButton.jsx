@@ -9,7 +9,7 @@ export default class FirstApp extends React.Component {
 
     render() {
         var items = this.props.items;
-        var itemHtml = items.map(function (listItem, i) {
+        var itemHtml = items.map((listItem, i)=> {
             return <li key={i}>{listItem}</li>;
         });
 
