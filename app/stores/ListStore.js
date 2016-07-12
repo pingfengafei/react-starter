@@ -12,7 +12,7 @@ var ListStore = assign({}, EventEmitter.prototype, {
         return this.items;
     },
 
-    addCreateItemHandler(text) {
+    doCreate(text) {
         this.items.push(text);
     },
 
@@ -32,7 +32,7 @@ var ListStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register((action)=> {
     switch (action.actionType) {
         case 'ADD_NEW_ITEM':
-            ListStore.addCreateItemHandler(action.text);
+            ListStore.doCreate(action.text);
             ListStore.emitCreateItem();
             break;
         default:
