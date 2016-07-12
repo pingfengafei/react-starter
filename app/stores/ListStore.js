@@ -12,28 +12,28 @@ var ListStore = assign({}, EventEmitter.prototype, {
         return this.items;
     },
 
-    addNewItemHandler(text) {
+    addCreateItemHandler(text) {
         this.items.push(text);
     },
 
-    emitChange() {
-        this.emit('change');
+    emitCreateItem() {
+        this.emit('ADD_NEW_ITEM');
     },
 
-    addChangeListener(callback) {
-        this.on('change', callback);
+    addCreateItemListener(callback) {
+        this.on('ADD_NEW_ITEM', callback);
     },
 
-    removeChangeListener(callback) {
-        this.removeListener('change', callback);
+    removeCreateItemListener(callback) {
+        this.removeListener('ADD_NEW_ITEM', callback);
     }
 });
 
 AppDispatcher.register((action)=> {
     switch (action.actionType) {
         case 'ADD_NEW_ITEM':
-            ListStore.addNewItemHandler(action.text);
-            ListStore.emitChange();
+            ListStore.addCreateItemHandler(action.text);
+            ListStore.emitCreateItem();
             break;
         default:
         // no op

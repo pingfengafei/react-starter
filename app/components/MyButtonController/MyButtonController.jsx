@@ -10,18 +10,18 @@ export default class MyButtonController extends React.Component {
         super(props);
         this.state = {items: ListStore.getAll()};
         this.createNewItem = this.createNewItem.bind(this);
-        this._onChange = this._onChange.bind(this);
+        this._onCreate = this._onCreate.bind(this);
     }
 
     componentDidMount() {
-        ListStore.addChangeListener(this._onChange);
+        ListStore.addCreateItemListener(this._onCreate);
     }
 
     componentWillUnmount() {
-        ListStore.removeChangeListener(this._onChange);
+        ListStore.removeCreateItemListener(this._onCreate);
     }
 
-    _onChange() {
+    _onCreate() {
         this.setState({
             items: ListStore.getAll()
         });
