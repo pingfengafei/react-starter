@@ -4,7 +4,7 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
 
 var ButtonAction = {
-    addNewItem: function (text) {
+    addNewItem(text) {
         AppDispatcher.dispatch({
             actionType: 'ADD_NEW_ITEM',
             text: text
