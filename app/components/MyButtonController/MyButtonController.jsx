@@ -9,7 +9,7 @@ export default class MyButtonController extends React.Component {
     constructor(props) {
         super(props);
         this.state = {items: ListStore.getAll()};
-        this.createNewItem = this.createNewItem.bind(this);
+        this._createNewItem = this._createNewItem.bind(this);
         this._onCreate = this._onCreate.bind(this);
     }
 
@@ -27,13 +27,13 @@ export default class MyButtonController extends React.Component {
         });
     }
 
-    createNewItem() {
-        ButtonAction.addNewItem('new item');
+    _createNewItem() {
+        ButtonAction.createNewItem('new item');
     }
 
     render() {
         return (
-            <MyButton items={this.state.items} onClick={this.createNewItem}/>
+            <MyButton items={this.state.items} onClick={this._createNewItem}/>
         );
     }
 }

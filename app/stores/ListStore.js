@@ -18,21 +18,21 @@ var ListStore = assign({}, EventEmitter.prototype, {
     },
 
     emitCreateItem() {
-        this.emit('ADD_NEW_ITEM');
+        this.emit('CREATE_NEW_ITEM');
     },
 
     addCreateItemListener(callback) {
-        this.on('ADD_NEW_ITEM', callback);
+        this.on('CREATE_NEW_ITEM', callback);
     },
 
     removeCreateItemListener(callback) {
-        this.removeListener('ADD_NEW_ITEM', callback);
+        this.removeListener('CREATE_NEW_ITEM', callback);
     }
 });
 
 AppDispatcher.register((action)=> {
     switch (action.actionType) {
-        case 'ADD_NEW_ITEM':
+        case 'CREATE_NEW_ITEM':
             ListStore.doCreate(action.text);
             break;
         default:
