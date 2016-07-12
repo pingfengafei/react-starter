@@ -8,6 +8,7 @@ import App from './components/App/App';
 import Boy from './components/Boy/Boy';
 import Boys from './components/Boys/Boys';
 import Girls from './components/Girls/Girls';
+import CounterApp from './components/Counter/CounterApp';
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -17,5 +18,6 @@ ReactDOM.render(
                 <Route path="/boys/:boyName" component={Boy}/>
             </Route>
             <Route path="/girls" component={Girls}/>
+            <Route path="/count" component={CounterApp}/>
         </Route>
     </Router>, document.getElementById('example'));
