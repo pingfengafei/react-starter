@@ -5,7 +5,7 @@ import {EventEmitter} from 'events';
 import assign from 'object-assign';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 
-var ListStore = assign({}, EventEmitter.prototype, {
+var ButtonStore = assign({}, EventEmitter.prototype, {
     items: [],
 
     getAll() {
@@ -33,11 +33,11 @@ var ListStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register((action)=> {
     switch (action.actionType) {
         case 'CREATE_NEW_ITEM':
-            ListStore.doCreate(action.text);
+            ButtonStore.doCreate(action.text);
             break;
         default:
         // no op
     }
 });
 
-export default ListStore;
+export default ButtonStore;

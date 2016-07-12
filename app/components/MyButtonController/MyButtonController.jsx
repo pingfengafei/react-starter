@@ -1,6 +1,6 @@
 import React from 'react';
 import './MyButtonController.less';
-import ListStore from '../../stores/ListStore';
+import ButtonStore from '../../stores/ButtonStore';
 import ButtonAction from '../../actions/ButtonAction';
 import MyButton from '../MyButton/MyButton';
 
@@ -8,22 +8,22 @@ export default class MyButtonController extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {items: ListStore.getAll()};
+        this.state = {items: ButtonStore.getAll()};
         this._createNewItem = this._createNewItem.bind(this);
         this._onCreate = this._onCreate.bind(this);
     }
 
     componentDidMount() {
-        ListStore.addCreateItemListener(this._onCreate);
+        ButtonStore.addCreateItemListener(this._onCreate);
     }
 
     componentWillUnmount() {
-        ListStore.removeCreateItemListener(this._onCreate);
+        ButtonStore.removeCreateItemListener(this._onCreate);
     }
 
     _onCreate() {
         this.setState({
-            items: ListStore.getAll()
+            items: ButtonStore.getAll()
         });
     }
 
