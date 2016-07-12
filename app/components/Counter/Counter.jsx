@@ -5,14 +5,25 @@ import CounterStore, {mapDispatchToProps, mapStateToProps} from '../../stores/Co
 class Counter extends React.Component {
     constructor(props) {
         super(props);
+        this.onIncrease = this.onIncrease.bind(this);
+        this.onDecrease = this.onDecrease.bind(this);
+    }
+
+    onIncrease() {
+        this.props.onIncreaseClick('+++');
+    }
+
+    onDecrease() {
+        this.props.onDecreaseClick('---');
     }
 
     render() {
         return (
             <div>
-                <button onClick={this.props.onIncreaseClick}>Increase</button>
-                <button onClick={this.props.onDecreaseClick}>Decrease</button>
+                <button onClick={this.onIncrease}>Increase</button>
+                <button onClick={this.onDecrease}>Decrease</button>
                 <div>count: {this.props.value}</div>
+                <div>cal: {this.props.text}</div>
             </div>
         );
     }
