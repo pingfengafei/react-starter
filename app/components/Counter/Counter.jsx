@@ -31,6 +31,7 @@ class Counter extends React.Component {
 
 Counter.propTypes = {
     value: React.PropTypes.number.isRequired,
+    text: React.PropTypes.string.isRequired,
     onIncreaseClick: React.PropTypes.func.isRequired,
     onDecreaseClick: React.PropTypes.func.isRequired
 };

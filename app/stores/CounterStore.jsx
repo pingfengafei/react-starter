@@ -16,7 +16,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 //reducer
-function counter(state = {count: 0}, action) {
+function counter(state = {count: 0, text: ''}, action) {
     const count = state.count;
     switch (action.type) {
         case 'INCREASE':
