@@ -27,16 +27,14 @@ class App extends React.Component {
     }
 
     render() {
-        // Injected by connect() call:
-        const {visibleTodos, visibilityFilter} = this.props;
         return (
             <div>
                 <AddTodo onAddClick={this.addTodo}/>
                 <TodoList
-                    todos={visibleTodos}
+                    todos={this.props.visibleTodos}
                     onTodoClick={this.completeTodo}/>
                 <Footer
-                    filter={visibilityFilter}
+                    filter={ this.props.visibilityFilter}
                     onFilterChange={this.setVisibilityFilter}/>
             </div>
         );
