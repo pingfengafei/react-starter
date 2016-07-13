@@ -9,20 +9,16 @@ import {addTodo, completeTodo, setVisibilityFilter, VisibilityFilters} from '../
 class App extends React.Component {
     render() {
         // Injected by connect() call:
-        const {dispatch, visibleTodos, visibilityFilter} = this.props;
+        const {visibleTodos, visibilityFilter} = this.props;
         return (
             <div>
-                <AddTodo onAddClick={(text) => {dispatch(addTodo(text));}}/>
+                <AddTodo onAddClick={(text) => {this.props.addTodo(text);}}/>
                 <TodoList
                     todos={visibleTodos}
-                    onTodoClick={index =>{
-                        dispatch(completeTodo(index));
-                    }}/>
+                    onTodoClick={index =>{this.props.completeTodo(index);}}/>
                 <Footer
                     filter={visibilityFilter}
-                    onFilterChange={nextFilter =>{
-                        dispatch(setVisibilityFilter(nextFilter));
-                    }}/>
+                    onFilterChange={nextFilter =>{this.props.setVisibilityFilter(nextFilter);}}/>
             </div>
         );
     }
@@ -51,12 +47,20 @@ function selectTodos(todos, filter) {
     }
 }
 
-function select(state) {
+function selectState(state) {
     return {
         visibleTodos: selectTodos(state.todos, state.visibilityFilter),
         visibilityFilter: state.visibilityFilter
     };
 }
 
+function selectFunc(dispatch) {
+    return {
+        addTodo: (text) => dispatch(addTodo(text)),
+        completeTodo: (text) => dispatch(completeTodo(text)),
+        setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter))
+    };
+}
+
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
-export default connect(select)(App);
+export default connect(selectState, selectFunc)(App);
