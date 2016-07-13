@@ -7,18 +7,37 @@ import {connect} from 'react-redux';
 import {addTodo, completeTodo, setVisibilityFilter, VisibilityFilters} from '../actions';
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.addTodo = this.addTodo.bind(this);
+        this.completeTodo = this.completeTodo.bind(this);
+        this.setVisibilityFilter = this.setVisibilityFilter.bind(this);
+    }
+
+    addTodo(text) {
+        this.props.addTodo(text);
+    }
+
+    completeTodo(index) {
+        this.props.completeTodo(index);
+    }
+
+    setVisibilityFilter(filter) {
+        this.props.setVisibilityFilter(filter);
+    }
+
     render() {
         // Injected by connect() call:
         const {visibleTodos, visibilityFilter} = this.props;
         return (
             <div>
-                <AddTodo onAddClick={(text) => {this.props.addTodo(text);}}/>
+                <AddTodo onAddClick={this.addTodo}/>
                 <TodoList
                     todos={visibleTodos}
-                    onTodoClick={index =>{this.props.completeTodo(index);}}/>
+                    onTodoClick={this.completeTodo}/>
                 <Footer
                     filter={visibilityFilter}
-                    onFilterChange={nextFilter =>{this.props.setVisibilityFilter(nextFilter);}}/>
+                    onFilterChange={this.setVisibilityFilter}/>
             </div>
         );
     }
@@ -57,7 +76,7 @@ function selectState(state) {
 function selectFunc(dispatch) {
     return {
         addTodo: (text) => dispatch(addTodo(text)),
-        completeTodo: (text) => dispatch(completeTodo(text)),
+        completeTodo: (index) => dispatch(completeTodo(index)),
         setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter))
     };
 }
