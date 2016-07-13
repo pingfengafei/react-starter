@@ -1,6 +1,7 @@
 import React from 'react';
 import {Provider, connect} from 'react-redux';
-import CounterStore, {mapDispatchToProps, mapStateToProps} from '../../stores/CounterStore';
+import CounterStore from '../../stores/CounterStore';
+import CounterAction from '../../actions/CounterAction';
 
 class Counter extends React.Component {
     constructor(props) {
@@ -35,6 +36,20 @@ Counter.propTypes = {
     onIncreaseClick: React.PropTypes.func.isRequired,
     onDecreaseClick: React.PropTypes.func.isRequired
 };
+
+function mapStateToProps(state) {
+    return {
+        value: state.count,
+        text: state.text
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        onIncreaseClick: (text) => dispatch(CounterAction.increase(text)),
+        onDecreaseClick: (text) => dispatch(CounterAction.decrease(text))
+    };
+}
 
 const APP = connect(
     mapStateToProps,
