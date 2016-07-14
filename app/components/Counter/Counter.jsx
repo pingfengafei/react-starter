@@ -1,5 +1,5 @@
 import React from 'react';
-import {Provider, connect} from 'react-redux';
+import {connect} from 'react-redux';
 import CounterStore from '../../stores/CounterStore';
 import CounterAction from '../../actions/CounterAction';
 
@@ -52,17 +52,7 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-const APP = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Counter);
-
-export default class extends React.Component {
-    render() {
-        return (
-            <Provider store={CounterStore}>
-                <APP />
-            </Provider>
-        );
-    }
-}

@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import {combineReducers, createStore} from 'redux';
 import {ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters} from './actions';
 const {SHOW_ALL} = VisibilityFilters;
 
@@ -34,9 +34,9 @@ function todos(todos = [], action) {
     }
 }
 
-const todoApp = combineReducers({
+const todoApp = createStore(combineReducers({
     visibilityFilter,
     todos
-});
+}));
 
 export default todoApp;

@@ -6,6 +6,8 @@ import Footer from '../components/Footer/Footer';
 import {connect} from 'react-redux';
 import {addTodo, completeTodo, setVisibilityFilter, VisibilityFilters} from '../actions';
 
+import TodoAppStore from '../TodoAppStore';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -27,7 +29,7 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(this.props);
+        console.log(TodoAppStore.getState());
         return (
             <div>
                 <AddTodo onAddClick={this.addTodo}/>
