@@ -52,12 +52,11 @@ Counter.propTypes = {
 };
 
 function mapStateToProps(state) {
-    const present = state.present;
     return {
         undoDisabled: state.past.length === 0,
         redoDisabled: state.future.length === 0,
-        value: present.count,
-        text: present.text
+        value: state.present.count,
+        text: state.present.text
     };
 }
 
