@@ -1,5 +1,5 @@
-const INCREASE = 'INCREASE';
-const DECREASE = 'DECREASE';
+export const INCREASE = 'INCREASE';
+export const DECREASE = 'DECREASE';
 
 let CounterAction = {
     increase(text) {

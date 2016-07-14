@@ -5,18 +5,17 @@ import ReactDOM from 'react-dom';
 import {Router, Route, browserHistory} from 'react-router';
 import MyButtonController from './components/MyButton/MyButtonController';
 import Demo from './containers/Demo';
-import TodoApp from './containers/App';
-import TodoAppStore from './stores/TodoAppStore';
+import TodoAppContainer from './containers/TodoAppContainer';
 import Counter from './components/Counter/Counter';
-import CounterStore from './stores/CounterStore';
+import ReduxRootStore from './stores/ReduxRootStore';
 
 import {Provider} from 'react-redux';
 
-class Redux extends React.Component {
+class TodoApp extends React.Component {
     render() {
         return (
-            <Provider store={TodoAppStore}>
-                <TodoApp />
+            <Provider store={ReduxRootStore}>
+                <TodoAppContainer />
             </Provider>
         );
     }
@@ -25,7 +24,7 @@ class Redux extends React.Component {
 class Count extends React.Component {
     render() {
         return (
-            <Provider store={CounterStore}>
+            <Provider store={ReduxRootStore}>
                 <Counter />
             </Provider>
         );
@@ -37,6 +36,6 @@ ReactDOM.render(
         <Route path="/" component={Demo}>
             <Route path="/demo" component={MyButtonController}/>
             <Route path="/count" component={Count}/>
-            <Route path="/redux" component={Redux}/>
+            <Route path="/redux" component={TodoApp}/>
         </Route>
     </Router>, document.getElementById('example'));

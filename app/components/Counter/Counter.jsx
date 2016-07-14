@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import CounterStore from '../../stores/CounterStore';
+import ReduxRootStore from '../../stores/ReduxRootStore';
 import CounterAction from '../../actions/CounterAction';
 import {ActionCreators} from 'redux-undo';
 
@@ -14,11 +14,11 @@ class Counter extends React.Component {
     }
 
     onIncrease() {
-        this.props.onIncreaseClick('+++');
+        this.props.onIncreaseClick('add');
     }
 
     onDecrease() {
-        this.props.onDecreaseClick('---');
+        this.props.onDecreaseClick('minus');
     }
 
     onUndo() {
@@ -30,7 +30,7 @@ class Counter extends React.Component {
     }
 
     render() {
-        console.log(CounterStore.getState());
+        console.log(ReduxRootStore.getState().counter);
         return (
             <div>
                 <button onClick={this.onIncrease}>Increase</button>
@@ -53,10 +53,10 @@ Counter.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        undoDisabled: state.past.length === 0,
-        redoDisabled: state.future.length === 0,
-        value: state.present.count,
-        text: state.present.text
+        undoDisabled: state.counter.past.length === 0,
+        redoDisabled: state.counter.future.length === 0,
+        value: state.counter.present.count,
+        text: state.counter.present.text
     };
 }
 

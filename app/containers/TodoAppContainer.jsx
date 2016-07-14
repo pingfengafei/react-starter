@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import {ActionCreators} from 'redux-undo';
 import {addTodo, completeTodo, setVisibilityFilter, VisibilityFilters} from '../actions/TodoAppAction';
 
-import TodoAppStore from '../stores/TodoAppStore';
+import ReduxRootStore from '../stores/ReduxRootStore';
 
 class App extends React.Component {
     constructor(props) {
@@ -40,7 +40,10 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(TodoAppStore.getState());
+        console.log({
+            visibilityFilter: ReduxRootStore.getState().visibilityFilter,
+            todos: ReduxRootStore.getState().todos
+        });
         return (
             <div>
                 <AddTodo onAddClick={this.addTodo}/>
