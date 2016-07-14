@@ -1,5 +1,6 @@
 import {createStore} from 'redux';
 
+//reducer中定义的state,最终会被react-redux中的connect中的mapStateToProps用到,并最终转变为组件的props
 function counter(state = {count: 0, text: ''}, action) {
     const count = state.count;
     switch (action.type) {

@@ -19,6 +19,7 @@ class Counter extends React.Component {
     }
 
     render() {
+        console.log(CounterStore.getState());
         return (
             <div>
                 <button onClick={this.onIncrease}>Increase</button>
