@@ -4,6 +4,7 @@ import TodoList from '../components/TodoList/TodoList';
 import Footer from '../components/Footer/Footer';
 
 import {connect} from 'react-redux';
+import {ActionCreators} from 'redux-undo';
 import {addTodo, completeTodo, setVisibilityFilter, VisibilityFilters} from '../actions';
 
 import TodoAppStore from '../TodoAppStore';
@@ -14,6 +15,8 @@ class App extends React.Component {
         this.addTodo = this.addTodo.bind(this);
         this.completeTodo = this.completeTodo.bind(this);
         this.setVisibilityFilter = this.setVisibilityFilter.bind(this);
+        this.onUndo = this.onUndo.bind(this);
+        this.onRedo = this.onRedo.bind(this);
     }
 
     addTodo(text) {
@@ -28,6 +31,14 @@ class App extends React.Component {
         this.props.setVisibilityFilter(filter);
     }
 
+    onUndo() {
+        this.props.onUndo();
+    }
+
+    onRedo() {
+        this.props.onRedo();
+    }
+
     render() {
         console.log(TodoAppStore.getState());
         return (
@@ -37,8 +48,12 @@ class App extends React.Component {
                     todos={this.props.visibleTodos}
                     onTodoClick={this.completeTodo}/>
                 <Footer
-                    filter={ this.props.visibilityFilter}
-                    onFilterChange={this.setVisibilityFilter}/>
+                    filter={this.props.visibilityFilter}
+                    onFilterChange={this.setVisibilityFilter}
+                    onUndo={this.onUndo}
+                    onRedo={this.onRedo}
+                    undoDisabled={this.props.undoDisabled}
+                    redoDisabled={this.props.redoDisabled}/>
             </div>
         );
     }
@@ -56,8 +71,8 @@ App.propTypes = {
     ]).isRequired
 };
 
-function selectTodos(todos, filter) {
-    switch (filter) {
+function selectTodos(todos, visibilityFilter) {
+    switch (visibilityFilter) {
         case VisibilityFilters.SHOW_ALL:
             return todos;
         case VisibilityFilters.SHOW_COMPLETED:
@@ -68,8 +83,11 @@ function selectTodos(todos, filter) {
 }
 
 function selectState(state) {
+    const presentTodos = state.todos.present;
     return {
-        visibleTodos: selectTodos(state.todos, state.visibilityFilter),
+        undoDisabled: state.todos.past.length === 0,
+        redoDisabled: state.todos.future.length === 0,
+        visibleTodos: selectTodos(presentTodos, state.visibilityFilter),
         visibilityFilter: state.visibilityFilter
     };
 }
@@ -78,7 +96,9 @@ function selectFunc(dispatch) {
     return {
         addTodo: (text) => dispatch(addTodo(text)),
         completeTodo: (index) => dispatch(completeTodo(index)),
-        setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter))
+        setVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter)),
+        onUndo: () => dispatch(ActionCreators.undo()),
+        onRedo: () => dispatch(ActionCreators.redo())
     };
 }
 

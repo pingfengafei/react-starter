@@ -1,5 +1,6 @@
 import {combineReducers, createStore} from 'redux';
 import {ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters} from './actions';
+import undoable, {distinctState} from 'redux-undo';
 const {SHOW_ALL} = VisibilityFilters;
 
 function visibilityFilter(visibilityFilter = SHOW_ALL, action) {
@@ -36,7 +37,7 @@ function todos(todos = [], action) {
 
 const todoApp = createStore(combineReducers({
     visibilityFilter,
-    todos
+    todos: undoable(todos, {filter: distinctState()})
 }));
 
 export default todoApp;
