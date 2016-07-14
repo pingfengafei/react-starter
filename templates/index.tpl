@@ -6,6 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div id="example"></div>
+<div style="margin: 10px;" id="example"></div>
 </body>
 </html>
