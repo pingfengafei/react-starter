@@ -3,7 +3,9 @@
 ## 项目概述
 
 此项目为一个简单的react+redux+flux+es6+react-router的示例demo。
+
 /demo为flux的demo,
+
 /count和/redux为redux的demo。
 
 ### 项目启动
