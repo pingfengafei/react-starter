@@ -30,7 +30,7 @@ class Counter extends React.Component {
     }
 
     render() {
-        console.log(ReduxRootStore.getState().counter);
+        console.log(ReduxRootStore.getState());
         return (
             <div>
                 <button onClick={this.onIncrease}>Increase</button>
