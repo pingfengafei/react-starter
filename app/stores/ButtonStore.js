@@ -2,10 +2,9 @@
  * Created by zad on 16/6/21.
  */
 import {EventEmitter} from 'events';
-import assign from 'object-assign';
 import AppDispatcher from '../dispatcher/AppDispatcher';
 
-var ButtonStore = assign({}, EventEmitter.prototype, {
+var ButtonStore = Object.assign({}, EventEmitter.prototype, {
     items: [],
 
     getAll() {
