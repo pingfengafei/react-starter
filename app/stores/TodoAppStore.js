@@ -1,5 +1,5 @@
 import {combineReducers, createStore} from 'redux';
-import {ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters} from './actions';
+import {ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters} from '../actions/TodoAppAction';
 import undoable, {distinctState} from 'redux-undo';
 const {SHOW_ALL} = VisibilityFilters;
 

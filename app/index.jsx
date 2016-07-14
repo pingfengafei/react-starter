@@ -6,7 +6,7 @@ import {Router, Route, browserHistory} from 'react-router';
 import MyButtonController from './components/MyButton/MyButtonController';
 import Demo from './containers/Demo';
 import TodoApp from './containers/App';
-import TodoAppStore from './TodoAppStore';
+import TodoAppStore from './stores/TodoAppStore';
 import Counter from './components/Counter/Counter';
 import CounterStore from './stores/CounterStore';
 

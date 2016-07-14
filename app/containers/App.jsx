@@ -5,9 +5,9 @@ import Footer from '../components/Footer/Footer';
 
 import {connect} from 'react-redux';
 import {ActionCreators} from 'redux-undo';
-import {addTodo, completeTodo, setVisibilityFilter, VisibilityFilters} from '../actions';
+import {addTodo, completeTodo, setVisibilityFilter, VisibilityFilters} from '../actions/TodoAppAction';
 
-import TodoAppStore from '../TodoAppStore';
+import TodoAppStore from '../stores/TodoAppStore';
 
 class App extends React.Component {
     constructor(props) {
