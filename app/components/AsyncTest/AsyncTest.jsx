@@ -26,7 +26,7 @@ class AsyncTest extends React.Component {
                     <button onClick={this.auth}>auth</button>
                 </div>
                 <div>
-                    <p>text:{JSON.stringify(this.props.text, null, 2)}</p>
+                    <pre>text:{JSON.stringify(this.props.text, null, 2)}</pre>
                     <p>status:{this.props.status}</p>
                 </div>
             </div>
