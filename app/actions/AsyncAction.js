@@ -25,15 +25,20 @@ let CounterAction = {
                 contentType: 'application/json',
                 crossDomain: true
             }).then(
-                response => dispatch({
-                    type: 'AUTHORIZE_SUCCESS',
-                    response
-                }),
-                error => dispatch({
-                    type: 'AUTHORIZE_FAIL',
-                    error
-                })
+                (response) => {
+                    dispatch({
+                        type: 'AUTHORIZE_SUCCESS',
+                        response
+                    });
+                },
+                (error) => {
+                    dispatch({
+                        type: 'AUTHORIZE_FAIL',
+                        error
+                    });
+                }
             );
+            
         };
     }
 };
