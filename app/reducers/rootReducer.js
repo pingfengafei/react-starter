@@ -9,11 +9,11 @@ import todos from './TodosReducer';
 import counter from './CounterReducer';
 import async from './AsyncReducer';
 
-const rootReducer = combineReducers({
+const RootReducer = combineReducers({
     visibilityFilter,
     async: async,
     todos: undoable(todos, {filter: distinctState()}),
     counter: undoable(counter, {filter: distinctState()})
 });
 
-export default rootReducer;
+export default RootReducer;
