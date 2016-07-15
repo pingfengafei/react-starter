@@ -10,6 +10,10 @@ class AsyncTest extends React.Component {
         this.auth = this.auth.bind(this);
     }
 
+    componentDidMount() {
+        console.log(123);
+    }
+
     auth() {
         const username = ReactDOM.findDOMNode(this.refs.username).value.trim();
         const password = ReactDOM.findDOMNode(this.refs.password).value.trim();
