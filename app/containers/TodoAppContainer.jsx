@@ -40,7 +40,7 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(ReduxRootStore.getState().visibilityFilter);
+        console.log(ReduxRootStore.getState());
         return (
             <div>
                 <AddTodo onAddClick={this.addTodo}/>
