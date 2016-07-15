@@ -3,8 +3,8 @@
  */
 import {createStore,applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from '../reducers/RootReducer';
+import RootReducer from '../reducers/RootReducer';
 
-const ReduxRootStore = createStore(rootReducer,applyMiddleware(thunk));
+const ReduxRootStore = createStore(RootReducer,applyMiddleware(thunk));
 
 export default ReduxRootStore;

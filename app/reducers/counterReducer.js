@@ -2,7 +2,7 @@
  * Created by zad on 16/7/15.
  */
 import {INCREASE, DECREASE} from '../actions/CounterAction';
-export default function counter(state = {count: 0, text: 'default'}, action) {
+export default function (state = {count: 0, text: 'default'}, action) {
     const count = state.count;
     switch (action.type) {
         case INCREASE:
