@@ -1,4 +1,6 @@
 import './style/style.less';
+import 'bootstrap/less/bootstrap.less';
+import '../node_modules/font-awesome/less/font-awesome.less';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
