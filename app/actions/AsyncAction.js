@@ -10,8 +10,10 @@ let CounterAction = {
         return function (dispatch) {
             dispatch({
                 type: 'AUTHORIZE',
-                username,
-                password
+                data: {
+                    username,
+                    password
+                }
             });
 
             $.ajax({
@@ -28,17 +30,17 @@ let CounterAction = {
                 (response) => {
                     dispatch({
                         type: 'AUTHORIZE_SUCCESS',
-                        response
+                        data: response
                     });
                 },
                 (error) => {
                     dispatch({
                         type: 'AUTHORIZE_FAIL',
-                        error
+                        data: error
                     });
                 }
             );
-            
+
         };
     }
 };
