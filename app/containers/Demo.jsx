@@ -13,6 +13,7 @@ export default class App extends React.Component {
             <div>
                 <h1>Ghettohub Issues</h1>
                 <ul role="nav">
+                    <li><Link to="/async" activeClassName="active123">async</Link></li>
                     <li><Link to="/count" activeClassName="active123">count</Link></li>
                     <li><Link to="/redux" activeClassName="active123">Redux</Link></li>
                 </ul>

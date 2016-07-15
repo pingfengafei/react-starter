@@ -4,12 +4,14 @@
 import {combineReducers} from 'redux';
 import undoable, {distinctState} from 'redux-undo';
 
-import visibilityFilter from '../reducers/visibilityFilterReducer';
-import todos from '../reducers/todosReducer';
-import counter from '../reducers/counterReducer';
+import visibilityFilter from './VisibilityFilterReducer';
+import todos from './TodosReducer';
+import counter from './CounterReducer';
+import async from './AsyncReducer';
 
 const rootReducer = combineReducers({
     visibilityFilter,
+    async: async,
     todos: undoable(todos, {filter: distinctState()}),
     counter: undoable(counter, {filter: distinctState()})
 });

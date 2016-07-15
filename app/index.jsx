@@ -6,6 +6,7 @@ import {Router, Route, browserHistory} from 'react-router';
 import Demo from './containers/Demo';
 import TodoAppContainer from './containers/TodoAppContainer';
 import Counter from './components/Counter/Counter';
+import AsyncTest from './components/AsyncTest/AsyncTest';
 import ReduxRootStore from './stores/ReduxRootStore';
 
 import {Provider} from 'react-redux';
@@ -30,9 +31,20 @@ class Count extends React.Component {
     }
 }
 
+class Async extends React.Component {
+    render() {
+        return (
+            <Provider store={ReduxRootStore}>
+                <AsyncTest />
+            </Provider>
+        );
+    }
+}
+
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={Demo}>
+            <Route path="/async" component={Async}/>
             <Route path="/count" component={Count}/>
             <Route path="/redux" component={TodoApp}/>
         </Route>

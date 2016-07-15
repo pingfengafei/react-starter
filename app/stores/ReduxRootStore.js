@@ -1,10 +1,10 @@
 /**
  * Created by zad on 16/7/14.
  */
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from '../reducers/RootReducer';
 
-import rootReducer from '../reducers/rootReducer';
-
-const ReduxRootStore = createStore(rootReducer);
+const ReduxRootStore = createStore(rootReducer,applyMiddleware(thunk));
 
 export default ReduxRootStore;
