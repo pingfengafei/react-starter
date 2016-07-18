@@ -23,6 +23,7 @@ let CounterAction = {
                     username: username,
                     password: password
                 }),
+                timeout: 10000,
                 dataType: 'json',
                 contentType: 'application/json',
                 crossDomain: true

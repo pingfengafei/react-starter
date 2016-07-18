@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Icon} from 'react-fa';
 import {connect} from 'react-redux';
 import ReduxRootStore from '../../stores/ReduxRootStore';
 import AsyncAction from '../../actions/AsyncAction';
@@ -8,10 +9,6 @@ class AsyncTest extends React.Component {
     constructor(props) {
         super(props);
         this.auth = this.auth.bind(this);
-    }
-
-    componentDidMount() {
-        console.log(123);
     }
 
     auth() {
@@ -25,8 +22,18 @@ class AsyncTest extends React.Component {
         return (
             <div>
                 <div>
-                    username:<input type="text" ref='username'/>
-                    password:<input type="text" ref='password'/>
+                    <p>
+                        <span className="fa-stack">
+                            <Icon name="camera-retro" size="lg"/>
+                        </span>
+                        username:<input type="text" ref='username'/>
+                    </p>
+                    <p>
+                        <span className="fa-stack">
+                            <Icon name="ban" size="lg" className="text-danger"/>
+                        </span>
+                        password:<input type="text" ref='password'/>
+                    </p>
                     <button onClick={this.auth}>auth</button>
                 </div>
                 <div>
