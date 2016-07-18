@@ -21,41 +21,13 @@ import ReduxRootStore from './stores/ReduxRootStore';
 
 injectTapEventPlugin();
 
-class TodoApp extends React.Component {
-    render() {
-        return (
-            <Provider store={ReduxRootStore}>
-                <TodoAppContainer />
-            </Provider>
-        );
-    }
-}
-
-class Count extends React.Component {
-    render() {
-        return (
-            <Provider store={ReduxRootStore}>
-                <Counter />
-            </Provider>
-        );
-    }
-}
-
-class Async extends React.Component {
-    render() {
-        return (
-            <Provider store={ReduxRootStore}>
-                <AsyncTest />
-            </Provider>
-        );
-    }
-}
-
 ReactDOM.render(
-    <Router history={hashHistory}>
-        <Route path="/" component={Demo}>
-            <Route path="/async" component={Async}/>
-            <Route path="/count" component={Count}/>
-            <Route path="/redux" component={TodoApp}/>
-        </Route>
-    </Router>, document.getElementById('example'));
+    <Provider store={ReduxRootStore}>
+        <Router history={hashHistory}>
+            <Route path="/" component={Demo}>
+                <Route path="/async" component={AsyncTest}/>
+                <Route path="/count" component={Counter}/>
+                <Route path="/redux" component={TodoAppContainer}/>
+            </Route>
+        </Router>
+    </Provider>, document.getElementById('example'));
