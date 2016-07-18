@@ -21,9 +21,10 @@ class AsyncTest extends React.Component {
 
     render() {
         console.log(ReduxRootStore.getState());
-        let status = this.props.status;
-        let text = this.props.text;
-        let accessExpireTime, refreshExpireTime;
+        let status = this.props.status,
+            text = this.props.text,
+            accessExpireTime,
+            refreshExpireTime;
         if (status === 'success') {
             console.log(jwt.decode(text.token));
             accessExpireTime = new Date(jwt.decode(text.token).exp * 1000).toString();

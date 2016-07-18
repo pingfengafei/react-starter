@@ -40,15 +40,15 @@ export default class App extends React.Component {
                     />
                 </MuiThemeProvider>
 
-                <ul role="nav" className="fa-ul">
+                <ul role="nav">
                     <li>
-                        <Icon name="home" fixedWidth className="fa-li"/><Link to="/async" activeClassName="active123">async</Link>
+                        <Link to="/async" activeClassName="active123"><Icon name="home" fixedWidth/>async</Link>
                     </li>
                     <li>
-                        <Icon name="book" fixedWidth className="fa-li"/><Link to="/count" activeClassName="active123">count</Link>
+                        <Link to="/count" activeClassName="active123"><Icon name="book" fixedWidth/>count</Link>
                     </li>
                     <li>
-                        <Icon name="pencil" fixedWidth className="fa-li"/><Link to="/redux" activeClassName="active123">Redux</Link>
+                        <Link to="/redux" activeClassName="active123"><Icon name="pencil" fixedWidth/>Redux</Link>
                     </li>
                 </ul>
                 {this.props.children}
