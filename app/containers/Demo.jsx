@@ -8,7 +8,7 @@ import AppBar from 'material-ui/AppBar';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 export default class App extends React.Component {
@@ -26,7 +26,8 @@ export default class App extends React.Component {
                 <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
                     <AppBar
                         title="Title"
-                        iconElementLeft={<IconButton><NavigationClose /></IconButton>}
+                        titleStyle={{'textAlign':'center','cursor':'pointer'}}
+                        iconElementLeft={<IconButton><NavigationMenu /></IconButton>}
                         iconElementRight={
                         <IconMenu
                             iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}

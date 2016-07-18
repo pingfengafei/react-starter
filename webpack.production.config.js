@@ -9,6 +9,13 @@ var APP_PATH = path.resolve(ROOT_PATH, 'app');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 module.exports = {
+    
+    //为了使jwt可以使用
+    node: {
+        net: 'empty',
+        dns: 'empty'
+    },
+    
     //项目的文件夹 可以直接用文件夹名称 默认会找index.js 也可以确定是哪个文件名字
     entry: {
         app: path.resolve(APP_PATH, 'index.jsx'),

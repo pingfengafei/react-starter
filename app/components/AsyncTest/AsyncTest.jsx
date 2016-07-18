@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import ReduxRootStore from '../../stores/ReduxRootStore';
 import AsyncAction from '../../actions/AsyncAction';
 
+import jwt from 'jsonwebtoken';
+
 class AsyncTest extends React.Component {
     constructor(props) {
         super(props);
@@ -19,6 +21,14 @@ class AsyncTest extends React.Component {
 
     render() {
         console.log(ReduxRootStore.getState());
+        let status = this.props.status;
+        let text = this.props.text;
+        let accessExpireTime, refreshExpireTime;
+        if (status === 'success') {
+            console.log(jwt.decode(text.token));
+            accessExpireTime = new Date(jwt.decode(text.token).exp * 1000).toString();
+            refreshExpireTime = new Date(jwt.decode(text.refreshToken).exp * 1000).toString();
+        }
         return (
             <div>
                 <div>
@@ -37,8 +47,10 @@ class AsyncTest extends React.Component {
                     <button onClick={this.auth}>auth</button>
                 </div>
                 <div>
-                    <pre>text:{JSON.stringify(this.props.text, null, 2)}</pre>
-                    <p>status:{this.props.status}</p>
+                    <pre>text:{JSON.stringify(text, null, 2)}</pre>
+                    <p>status:{status}</p>
+                    <p>accessExpireTime:{accessExpireTime}</p>
+                    <p>refreshExpireTime:{refreshExpireTime}</p>
                 </div>
             </div>
         );

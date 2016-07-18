@@ -18,6 +18,12 @@ module.exports = {
         port: 9999
     },
 
+    //为了使jwt可以使用
+    node: {
+        net: 'empty',
+        dns: 'empty'
+    },
+
     //开发工具,在开发模式下,可以方便调试,生产环境中,应该去掉该选项
     devtool: '#eval-source-map',
 
